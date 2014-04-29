@@ -41,7 +41,7 @@ angular.module('vinzApp')
       }
     }
 
-    $scope.toggleHasAccess = function () {
+    $scope.toggleShowAccess = function () {
       //has access
       if ($scope.caseId % 2 == 0) {
         $scope.caseId += 1;
@@ -57,7 +57,7 @@ angular.module('vinzApp')
     }
 
     function showNonGroupServers() {
-      $scope.myServers = serverGroups.getServerGroup(serverGroupId);
+      $scope.myServers = serverGroups.getNonGroupServers(serverGroupId);
     }
 
     function showGroupUsers() {

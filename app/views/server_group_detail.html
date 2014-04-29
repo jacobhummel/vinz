@@ -61,7 +61,7 @@
   </div>
 
 	<!-- ServerGroup Servers Table -->
-	<table id="servers" class="serverTable table table-hover table-striped table-bordered" ng-class="{'hide' : !(caseId == 0 || shown == 1)}">
+	<table id="servers" class="serverTable table table-hover table-striped table-bordered" ng-class="{'hide' : !(caseId == 0 || caseId == 1)}">
     <thead>
       <tr>
         <th>Name</th>
@@ -73,7 +73,7 @@
       <tr ng-repeat="server in myServers | filter:search">
         <td>{{server.name}}</td>
         <td>{{server.hostname}}</td>
-        <td class="col-sm-2"><div ng-click="toggleAccess(user);" class="btn serverInfoBtn" ng-class="{ 'btn-danger': access.has, 'btn-success': !access.has }">{{access.message}}</div></td>
+        <td class="col-sm-2"></td>
       </tr>
     </tbody>
   </table>
@@ -91,7 +91,7 @@
       <tr ng-repeat="user in myUsers | filter:search">
         <td>{{server.name}}</td>
         <td>{{server.hostname}}</td>
-        <td class="col-sm-2"><div ng-click="toggleAccess(user);" class="btn serverInfoBtn" ng-class="{ 'btn-danger': access.has, 'btn-success': !access.has }">{{access.message}}</div></td>
+        <td class="col-sm-2"></td>
       </tr>
     </tbody>
   </table>
@@ -109,7 +109,7 @@
       <tr ng-repeat="userGroup in myUserGroups | filter:search">
         <td>{{server.name}}</td>
         <td>{{server.hostname}}</td>
-        <td class="col-sm-2"><div ng-click="toggleAccess(user);" class="btn serverInfoBtn" ng-class="{ 'btn-danger': access.has, 'btn-success': !access.has }">{{access.message}}</div></td>
+        <td class="col-sm-2"></td>
       </tr>
     </tbody>
   </table>
@@ -124,7 +124,7 @@ $(function() {
   //This should be doable with angular, but I couldn't get it to.
   $('input:radio[name="access"]').change(function() {
     scope.$apply(function() {
-       scope.toggleAccess();
+       scope.toggleShowAccess();
     });
   });
 

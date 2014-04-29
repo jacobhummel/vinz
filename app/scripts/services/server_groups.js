@@ -28,5 +28,9 @@ angular.module('vinzApp')
         var servers = GroupServer.query({id: serverGroupId});
         return servers;
       },
+      getNonGroupServers: function(serverGroupId) {
+        var servers = GroupServer.query({id: serverGroupId, not_in_group: true});
+        return servers;
+      }
     };
   });
